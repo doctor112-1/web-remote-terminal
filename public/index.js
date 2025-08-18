@@ -16,8 +16,10 @@ socket.on("data", (msg) => {
 term.onTerminalReady = function () {
   const io = term.io.push()
   term.setBackgroundColor("#1e1e2e")
-  term.prefs_.set('font-family', '"FiraCode Nerd Font", monospace');
-  term.prefs_.set('user-css', 'https://cdn.jsdelivr.net/gh/mshaugh/nerdfont-webfonts@v3.3.0/build/firacode-nerd-font.css');
+  //term.prefs_.set('font-family', '"FiraCode Nerd Font", monospace');
+  //term.prefs_.set('user-css', 'https://cdn.jsdelivr.net/gh/mshaugh/nerdfont-webfonts@v3.3.0/build/firacode-nerd-font.css');
+  term.prefs_.set('font-family', 'JetBrains Mono Nerd Font, "JetBrains Mono"');
+  term.prefs_.set('user-css', "fonts.css")
 
   io.onVTKeystroke = (str) => {
     socket.emit("data", str)

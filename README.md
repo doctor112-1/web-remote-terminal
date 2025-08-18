@@ -33,6 +33,4 @@ npm run start
 
 ## TODO
 
-add Jetbrains Mono font support
-
 make `/bin/login` work

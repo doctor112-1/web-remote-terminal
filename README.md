@@ -1,6 +1,6 @@
 # web-remote-terminal
 
-this project is heavily (HEAVILY) based off [https://github.com/velzie/tiTTY](https://github.com/velzie/tiTTY)
+this project is based off [https://github.com/velzie/tiTTY](https://github.com/velzie/tiTTY)
 
 ## Run
 

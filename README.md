@@ -23,7 +23,7 @@ Your .env file should look like this
 
 ```
 PORT="enterportnumberhere"
-USER="enterusernameofusertologinto"
+USERNAME="enterusernameofusertologinto"
 ```
 
 ### Run

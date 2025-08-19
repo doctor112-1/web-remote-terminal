@@ -23,6 +23,7 @@ Your .env file should look like this
 
 ```
 PORT="enterportnumberhere"
+USER="enterusernameofusertologinto"
 ```
 
 ### Run
@@ -30,7 +31,3 @@ PORT="enterportnumberhere"
 ```
 npm run start
 ```
-
-## TODO
-
-make `/bin/login` work

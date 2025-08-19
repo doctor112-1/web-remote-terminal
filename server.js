@@ -8,14 +8,14 @@ const app = express()
 const server = createServer(app);
 const port = process.env.PORT
 const io = new Server(server);
-const user = process.env.USER
+const username = process.env.USERNAME
 
 app.use(express.static('public'))
 
 io.on('connection', (socket) => {
   let ptyProcess;
   socket.on("tty", (msg) => {
-    ptyProcess = pty.spawn("su", [user], {
+    ptyProcess = pty.spawn("su", [username], {
       name: 'xterm-color',
       cols: msg.cols,
       rows: msg.rows,

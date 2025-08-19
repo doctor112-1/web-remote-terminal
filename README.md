@@ -18,7 +18,7 @@ npm i
 
 ### Create .env file
 
-Create a .env file and specify the port for the server to run on and the pixabay api key
+Create a .env file and specify the port for the server to run on and the user to log into.
 Your .env file should look like this
 
 ```

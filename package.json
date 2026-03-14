@@ -1,0 +1,20 @@
+{
+  "name": "web-remote-terminal",
+  "version": "1.0.0",
+  "description": "a remote terminal in the web",
+  "homepage": "https://github.com/doctor112-1/web-remote-terminal#readme",
+  "bugs": {
+    "url": "https://github.com/doctor112-1/web-remote-terminal/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doctor112-1/web-remote-terminal.git"
+  },
+  "license": "ISC",
+  "author": "doctor112-1",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -12,7 +12,6 @@ const io = new Server(server);
 app.use(express.static('public'))
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
   let ptyProcess;
   socket.on("tty", (msg) => {
     ptyProcess = pty.spawn("bash", [], {

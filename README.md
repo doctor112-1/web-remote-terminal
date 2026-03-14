@@ -33,6 +33,4 @@ npm run start
 
 ## TODO
 
-make ligatures work
-
 make `/bin/login` work

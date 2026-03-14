@@ -43,5 +43,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Web remote terminal listening on port ${port}`)
 })

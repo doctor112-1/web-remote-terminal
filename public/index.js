@@ -19,7 +19,7 @@ term.onTerminalReady = function () {
   term.prefs_.set('cursor-color', 'f5e0dc')
   //term.prefs_.set('font-family', '"FiraCode Nerd Font", monospace');
   //term.prefs_.set('user-css', 'https://cdn.jsdelivr.net/gh/mshaugh/nerdfont-webfonts@v3.3.0/build/firacode-nerd-font.css');
-  term.prefs_.set('font-family', 'JetBrains Mono Nerd Font, "JetBrains Mono"');
+  term.prefs_.set('font-family', 'Pragmasevka Nerd Font');
   term.prefs_.set('user-css', "fonts.css")
 
   io.onVTKeystroke = (str) => {

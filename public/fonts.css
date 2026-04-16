@@ -1,3 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono');
+x-row {text-rendering: optimizeLegibility;font-variant-ligatures: normal;}
 
-@font-face {font-family: "JetBrains Mono Nerd Font"; src: url("https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf"); font-weight: normal; font-style: normal;} x-row {text-rendering: optimizeLegibility;font-variant-ligatures: normal;}
+@font-face {
+  font-family: "Pragmasevka Nerd Font";
+  src:
+    url("/pragmasevka-nf-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pragmasevka Nerd Font";
+  src:
+    url("/pragmasevka-nf-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pragmasevka Nerd Font";
+  src:
+    url("/pragmasevka-nf-italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}

@@ -24,8 +24,6 @@ term.onTerminalReady = function () {
 
   io.onVTKeystroke = (str) => {
     socket.emit("data", str)
-    console.log(term.screenSize.height)
-    console.log(term.screenSize.width)
   };
 
   io.sendString = (str) => {

@@ -6,29 +6,22 @@
     <meta name="description" content="Web Remote Terminal">
     <meta name="author" content="doctor112-1">
     <script src="/socket.io/socket.io.js"></script>
-    <script src="hterm_all.js"></script>
     <script src="index.js" type="module"></script>
+    <link rel="stylesheet" href="/css/xterm.css" />
+    <link rel="stylesheet" href="/fonts/Iosevka.css" />
+    <script src="/lib/xterm.js"></script>
+    <script src="/lib/addon-fit.js"></script>
+    <script src="/lib/addon-web-fonts.js"></script>
     <style>
-    html {
-    height: 100%;
+    .terminal {
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
     }
 
     body {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
-    }
-
-    #terminal {
-    display: block;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
+      margin: 0;
+      padding: 0;
     }
     </style>
   </head>

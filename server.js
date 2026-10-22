@@ -3,6 +3,9 @@ import { createServer } from 'node:http';
 import 'dotenv/config'
 import { Server } from 'socket.io';
 import * as pty from 'node-pty';
+import { join } from "path"
+
+const __dirname = import.meta.dirname;
 
 const app = express()
 const server = createServer(app);
@@ -10,13 +13,17 @@ const port = process.env.PORT
 const io = new Server(server);
 const username = process.env.USERNAME
 
-app.use(express.static('public'))
+app.use(express.static(join(__dirname, 'public')))
+
+app.use(express.static(join(__dirname, 'node_modules/@xterm/xterm')))
+app.use(express.static(join(__dirname, 'node_modules/@xterm/addon-fit')))
+app.use(express.static(join(__dirname, 'node_modules/@xterm/addon-web-fonts')))
 
 io.on('connection', (socket) => {
   let ptyProcess;
   socket.on("tty", (msg) => {
     ptyProcess = pty.spawn("su", [username], {
-      name: 'xterm-color',
+      name: 'xterm-256color',
       cols: msg.cols,
       rows: msg.rows,
       cwd: process.env.HOME,

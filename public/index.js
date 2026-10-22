@@ -1,41 +1,64 @@
-await lib.init()
-var term = new hterm.Terminal();
-term.decorate(document.querySelector('#terminal'));
+var term = new Terminal({
+  theme: {
+    background: "#1e1e2e",
+    foreground: "#cdd6f4",
+    cursor: "#f5e0dc",
+    cursorAccent: "#11111b",
+    black: "#45475a",
+    red: "#f38ba8",
+    green: "#a6e3a1",
+    yellow: "#f9e2af",
+    blue: "#89b4fa",
+    magenta: "#f5c2e7",
+    cyan: "#94e2d5",
+    white: "#bac2de",
+    brightBlack: "#585b70",
+    brightRed: "#f38ba8",
+    brightGreen: "#a6e3a1",
+    brightYellow: "#f9e2af",
+    brightBlue: "#89b4fa",
+    brightMagenta: "#f5c2e7",
+    brightCyan: "#94e2d5",
+    brightWhite: "#a6adc8",
+    selectionForeground: "#cdd6f4",
+    selectionBackground: "#414356"
+  },
+  fontFamily: '"Iosevka Nerd Font Mono", "monospace"'
+});
+const fitAddon = new FitAddon.FitAddon();
+term.loadAddon(fitAddon);
 
-const socket = io();
+const webFontsInstance = new WebFontsAddon.WebFontsAddon()
+term.loadAddon(webFontsInstance)
 
-socket.emit("tty", {
-  cols: term.screenSize.width,
-  rows: term.screenSize.height
-})
+webFontsInstance.loadFonts(["Iosevka Nerd Font Mono"]).then(() => {
+  term.open(document.getElementById('terminal'));
+  fitAddon.fit();
 
-socket.on("data", (msg) => {
-  term.io.print(msg)
-})
+  const socket = io();
 
-term.onTerminalReady = function () {
-  const io = term.io.push()
-  term.setBackgroundColor("#181825")
-  term.prefs_.set('cursor-color', 'f5e0dc')
-  //term.prefs_.set('font-family', '"FiraCode Nerd Font", monospace');
-  //term.prefs_.set('user-css', 'https://cdn.jsdelivr.net/gh/mshaugh/nerdfont-webfonts@v3.3.0/build/firacode-nerd-font.css');
-  term.prefs_.set('font-family', 'Pragmasevka Nerd Font');
-  term.prefs_.set('user-css', "fonts.css")
+  socket.emit("tty", {
+    cols: term.cols,
+    rows: term.rows
+  })
 
-  io.onVTKeystroke = (str) => {
-    socket.emit("data", str)
-  };
+  socket.on("data", (msg) => {
+    term.write(msg)
+  })
 
-  io.sendString = (str) => {
-    socket.emit("data", str)
-  };
+  term.onData(e => {
+    socket.emit("data", e)
+  })
 
-  io.onTerminalResize = (cols, rows) => {
+  window.addEventListener("resize", () => {
+    fitAddon.fit()
+  })
+
+  term.onResize((size) => {
+    console.log(size.cols, size.rows)
     socket.emit("resize", {
-      cols: cols,
-      rows: rows
+      cols: size.cols,
+      rows: size.rows
     })
-  };
-}
-
-term.installKeyboard();
+  })
+})

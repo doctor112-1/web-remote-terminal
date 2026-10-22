@@ -13,7 +13,7 @@ git clone https://github.com/doctor112-1/web-remote-terminal.git
 ### Install dependencies
 
 ```
-npm i
+pnpm i
 ```
 
 ### Create .env file
@@ -29,5 +29,5 @@ USERNAME="enterusernameofusertologinto"
 ### Run
 
 ```
-npm run start
+pnpm run start
 ```
